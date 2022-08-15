@@ -1,0 +1,48 @@
+<form [formGroup]="checkForm" (ngSubmit)="onSubmit()" style="width: fit-content;">
+    <div class="form-group">
+       <label for="first">Firstname</label>
+       <input type="text" id="first" formControlName="first" class="form-control">   
+    </div>
+    <div class="form-group">
+        <label for="first">Lastname</label>
+        <input type="text" id="last" formControlName="last" class="form-control">   
+     </div>
+    <div class="form-group">
+        <button class="button" type="submit" class="btn btn-success" [disabled]="checkForm.invalid">Submit</button>
+    </div>
+ </form>
+ <!-- <div>
+    <button (click)="clear()">clear</button>
+ </div> -->
+ <div>
+    <table>
+        <thead>
+            <tr>
+                <th>UserId</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>edit</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of list; index as i">
+                <td>
+                    {{i+1}}
+                </td>
+                <td>
+                    {{user.first}}
+                </td>
+                <td>
+                    {{user.last}}
+                </td>
+                <td>
+                    <button style='font-size:24px' (click)="edit(i)"><i class='far fa-edit'></i></button>
+                </td>
+                <td>
+                    <button style='font-size:24px' (click)="delete(i)"><i class='fas fa-trash'></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,25 @@
+<p>department works!</p>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>UserId</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of list; index as i">
+                <td>
+                    {{i+1}}
+                </td>
+                <td>
+                    {{user.first}}
+                </td>
+                <td>
+                    {{user.last}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+ </div>
