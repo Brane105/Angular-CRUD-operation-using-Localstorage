@@ -64,15 +64,19 @@ export class UserComponent implements OnInit {
     console.log(data)
     let arr = this.getCrudData();
     console.log(arr[data]);
+   if(arr[data] != undefined){
     this.checkForm.controls['first'].setValue(arr[data].first);
     this.checkForm.controls['last'].setValue(arr[data].last);
+   }
+   else{
+    console.log(arr[data])
+   }
   }
   delete(data:any){
-    // console.log(data)
-    if (data > -1) { // only splice array when item is found
-      this.list.splice(data, 1); // 2nd parameter means remove one item only
-    }
-    this.checkForm.reset()
-    window.localStorage.clear();
+    let arr = this.getCrudData();
+    arr.splice(data,1);
+    this.setCrudData(arr);
+    this.edit(data);
+    this.checkForm.reset();
   }
 }
