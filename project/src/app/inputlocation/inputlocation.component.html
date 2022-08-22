@@ -1,24 +1,4 @@
-<div class="container-fluid">
-    <table class="table table-striped">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>LOCATION</th>
-            <th>EDIT</th>
-            <th>DELETE</th>
-        </tr>
-    </thead>
-    <tbody *ngIf="locations">
-        <tr *ngFor="let Loc of locations; index as i ">
-            <td>{{Loc.locationCode}}</td>
-            <td>{{Loc.location}}</td>
-            <td><a (click)="edit(i)">Edit</a></td>
-            <!-- <td><a (click)="onDelete(Loc.locationCode)">Delete</a></td> -->
-        </tr>
-    </tbody>
-    </table>
-</div>
-<div class="container-fluid input-box" *ngIf="id">
+<div class="container-fluid input-box">
     <form [formGroup]="locForm" (ngSubmit)="onSubmit()" style="width: fit-content;">
         <div class="form-group">
             <label for="enter_id"><b>Enter Location Code</b></label>

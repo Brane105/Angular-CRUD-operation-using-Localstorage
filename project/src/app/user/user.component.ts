@@ -9,6 +9,7 @@ export class UserComponent implements OnInit {
   checkForm : any;
   list: any;
   id: any;
+  Larray : any= []
   constructor(private formBuilder: FormBuilder) {
     this.getCrudData()
   }
@@ -67,6 +68,7 @@ export class UserComponent implements OnInit {
    if(arr[data] != undefined){
     this.checkForm.controls['first'].setValue(arr[data].first);
     this.checkForm.controls['last'].setValue(arr[data].last);
+    this.Larray =({first : this.checkForm.controls['first'].value , last : this.checkForm.controls['last'].value})
    }
    else{
     console.log(arr[data])
@@ -79,4 +81,5 @@ export class UserComponent implements OnInit {
     this.edit(data);
     this.checkForm.reset();
   }
+
 }

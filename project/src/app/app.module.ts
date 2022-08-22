@@ -7,13 +7,15 @@ import { UserComponent } from './user/user.component';
 import { DepartmentComponent } from './department/department.component';
 import { LocationComponent } from './location/location.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputlocationComponent } from './inputlocation/inputlocation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     DepartmentComponent,
-    LocationComponent
+    LocationComponent,
+    InputlocationComponent
   ],
   imports: [
     BrowserModule,
