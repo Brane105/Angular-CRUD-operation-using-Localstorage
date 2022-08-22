@@ -43,10 +43,9 @@ export class LocationComponent implements OnInit {
     console.log(this.object)
   }
 
-  // delete(obj:any){
-  //   console.log(this.locForm.value)
-  //   this.data.deleteLoc(obj)
-  // }
+  delete(obj:any){
+    this.data.deleteLoc(obj)
+  }
   // edit(data:any){
   //     this.id = data
   //     console.log(data)

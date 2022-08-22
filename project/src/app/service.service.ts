@@ -37,17 +37,9 @@ export class ServiceService {
     }
   }
   
-  // deleteLoc(obj : any) {
-  //   console.log(obj)
-  //   for(let i=0; i< this.locations.length; i++){
-  //     let data=this.locations[i];
-  //     if(data.locationCode == obj.locationCode){
-  //       const indexOfObject = data.findIndex((object: { locationCode: number; }) => {
-  //         return object.locationCode === i;
-  //       });
-  //      console.log(indexOfObject); // 👉️ 1
-  //      this.locations.splice(indexOfObject, 1);  
-  //     }
-  //   }
-  // }
+  deleteLoc(obj : any) {
+    console.log(obj)
+    this.locations.splice(obj,1);
+    this.allLocations()
+  }
 }
