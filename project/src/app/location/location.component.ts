@@ -11,7 +11,8 @@ export class LocationComponent implements OnInit {
   locForm: any;
   id: any;
   Larray: any = [];
-
+  object: any = [];
+  
   constructor(private data: ServiceService , private builder : FormBuilder ) {}
 
   ngOnInit(): void {
@@ -26,24 +27,44 @@ export class LocationComponent implements OnInit {
   //   console.log(locCode)
   //   this.data.editLoc(locCode)
   // }
-  edit(data:any){
-    this.id = data
-    console.log(data)
-    let arr = this.locations
-    console.log(arr[data]);
-   if(arr[data] != undefined){
-    this.locForm.controls['locationCode'].setValue(arr[data].locationCode);
-    this.locForm.controls['location'].setValue(arr[data].location);
-    this.Larray =({locationCode : this.locForm.controls['locationCode'].value , location : this.locForm.controls['location'].value})
-   }
-   else{
-    console.log(arr[data])
-   }
+  setupdatevalue(){
+    this.locForm.controls['locationCode'].setValue(this.object.locationCode);
+    this.locForm.controls['location'].setValue(this.object.location);
   }
-  onSubmit(){
-    let locCode = this.locForm.value;
-    let arr=this.locations;
-    arr[this.id] = locCode;
-    console.log(this.locations)
+  
+  updateForm(){
+    console.log(this.locForm.value)
+    this.data.editLoc(this.locForm.value)
   }
+
+  getInfo(value : any){
+    this.id = value
+    this.object = this.data.getLocationByCode(value)
+    console.log(this.object)
+  }
+
+  // delete(obj:any){
+  //   console.log(this.locForm.value)
+  //   this.data.deleteLoc(obj)
+  // }
+  // edit(data:any){
+  //     this.id = data
+  //     console.log(data)
+  //     let arr = this.locations
+  //     console.log(arr[data]);
+  //   if(arr[data] != undefined){
+  //     this.locForm.controls['locationCode'].setValue(arr[data].locationCode);
+  //     this.locForm.controls['location'].setValue(arr[data].location);
+  //     this.Larray =({locationCode : this.locForm.controls['locationCode'].value , location : this.locForm.controls['location'].value})
+  //   }
+  //   else{
+  //     console.log(arr[data])
+  //   }
+  // }
+  // onSubmit(){
+  //   let locCode = this.locForm.value;
+  //   let arr=this.locations;
+  //   arr[this.id] = locCode;
+  //   console.log(this.locations)
+  // }
 }

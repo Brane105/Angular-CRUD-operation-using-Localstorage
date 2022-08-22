@@ -12,14 +12,15 @@
         <tr *ngFor="let Loc of locations; index as i ">
             <td>{{Loc.locationCode}}</td>
             <td>{{Loc.location}}</td>
-            <td><a (click)="edit(i)">Edit</a></td>
-            <!-- <td><a (click)="onDelete(Loc.locationCode)">Delete</a></td> -->
+            <!-- (click)="edit(i)"   -->
+            <td><a (click)="getInfo(Loc.locationCode)" (click)="setupdatevalue()" value="Get" >Edit</a></td>
+            <!-- <td><a (click)="delete(Loc.locationCode)">Delete</a></td> -->
         </tr>
     </tbody>
     </table>
 </div>
 <div class="container-fluid input-box" *ngIf="id+1">
-    <form [formGroup]="locForm" (ngSubmit)="onSubmit()" style="width: fit-content;">
+    <form [formGroup]="locForm" (ngSubmit)="updateForm()" style="width: fit-content;">
         <div class="form-group">
             <label for="enter_id"><b>Enter Location Code</b></label>
             <input type="number" aria-describedby="input-ID" id="locationCode" formControlName="locationCode"
@@ -32,7 +33,7 @@
         </div>
         <br>
         <div class="form-group">
-            <button class="button" type="submit" class="btn btn-success" [disabled]="locForm.invalid">Submit</button>
+            <button class="button" type="submit" class="btn btn-success" [disabled]="locForm.invalid" >Submit</button>
             <button type="reset" class="btn btn-danger">Reset</button>
         </div>
     </form>
