@@ -19,7 +19,7 @@
     </tbody>
     </table>
 </div>
-<div class="container-fluid input-box" *ngIf="id+1">
+<div class="container-fluid input-box" *ngIf="id">
     <form [formGroup]="locForm" (ngSubmit)="updateForm()" style="width: fit-content;">
         <div class="form-group">
             <label for="enter_id"><b>Enter Location Code</b></label>

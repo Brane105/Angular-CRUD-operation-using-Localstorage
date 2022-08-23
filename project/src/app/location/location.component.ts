@@ -35,6 +35,7 @@ export class LocationComponent implements OnInit {
   updateForm(){
     console.log(this.locForm.value)
     this.data.editLoc(this.locForm.value)
+    this.id = ""
   }
 
   getInfo(value : any){
@@ -46,6 +47,7 @@ export class LocationComponent implements OnInit {
   delete(obj:any){
     this.data.deleteLoc(obj)
   }
+  hide = true
   // edit(data:any){
   //     this.id = data
   //     console.log(data)
