@@ -1,0 +1,19 @@
+<div class="container-fluid input-box">
+    <form [formGroup]="locForm" (ngSubmit)="onSubmit()" style="width: fit-content;">
+        <div class="form-group">
+            <label for="enter_id"><b>Enter Location Code</b></label>
+            <input type="number" aria-describedby="input-ID" id="locationCode" formControlName="locationCode"
+                class="form-control" placeholder="Enter Your Location">
+        </div>
+        <div class="form-group">
+            <label for="enter_id"><b>Enter Location</b></label>
+            <input type="text" aria-describedby="input-ID" placeholder="" id="location" formControlName="location"
+                class="form-control" placeholder="Enter Your Location">
+        </div>
+        <br>
+        <div class="form-group">
+            <button class="button" type="submit" class="btn btn-success" [disabled]="locForm.invalid">Submit</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+        </div>
+    </form>
+</div>

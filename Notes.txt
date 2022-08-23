@@ -1,0 +1,17 @@
+Notes
+
+template classes
+
+Angular routing
+/locations: table
+
+Though a button, input, dialogue box
+Ok and cancel button,
+empty textbox
+Validate location Uniq ID
+
+EDIT same thing
+Location ID constant
+
+
+

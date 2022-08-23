@@ -1,0 +1,12 @@
+table {
+  margin-top: 20px;
+  padding: 10px;
+  border: solid 2px grey;
+}
+a {
+  color: blue;
+  cursor: pointer;
+}
+.btn-primary{
+  margin-right: 20px;
+}
