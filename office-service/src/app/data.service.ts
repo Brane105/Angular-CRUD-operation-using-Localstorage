@@ -1,0 +1,45 @@
+import { Injectable } from '@angular/core';
+import { Location } from './model';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class DataService {
+  private locations: any = [];
+  loc: any;
+  constructor() {}
+
+  allLocations(): any {
+    return this.locations;
+  }
+
+  getLocationByCode(value: number) {
+    for (let i = 0; i < this.locations.length; i++) {
+      let user = this.locations[i];
+      if (user.locationCode == value) {
+        return this.locations[i];
+      }
+    }
+  }
+  storeLocation(locationCode: number, location: string): any {
+    this.loc = { locationCode: locationCode, location: location };
+    this.locations.push(this.loc);
+    console.log('Service ' + this.locations);
+  }
+  editLoc(obj: any) {
+    console.log(obj);
+    for (let i = 0; i < this.locations.length; i++) {
+      let data = this.locations[i];
+      if (data.locationCode == obj.locationCode) {
+        data.locationCode = obj.locationCode;
+        data.location = obj.location;
+      }
+    }
+  }
+
+  deleteLoc(obj: any) {
+    console.log(obj);
+    this.locations.splice(obj, 1);
+    this.allLocations();
+  }
+}

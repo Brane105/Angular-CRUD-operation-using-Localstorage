@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { provideRoutes } from '@angular/router';
+import { Location } from '../model';
+import { DataService } from '../data.service';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ServiceService } from '../service.service';
+import { windowTime } from 'rxjs';
+
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
@@ -13,7 +17,7 @@ export class LocationComponent implements OnInit {
   Larray: any = [];
   object: any = [];
 
-  constructor(private data: ServiceService, private builder: FormBuilder) {}
+  constructor(private data: DataService, private builder: FormBuilder) {}
 
   ngOnInit(): void {
     this.locations = this.data.allLocations();
@@ -35,7 +39,7 @@ export class LocationComponent implements OnInit {
   updateForm() {
     console.log(this.locForm.value);
     this.data.editLoc(this.locForm.value);
-    this.id = 0;
+    this.id = '';
   }
 
   getInfo(value: any) {

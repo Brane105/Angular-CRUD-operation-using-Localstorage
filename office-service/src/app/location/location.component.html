@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>LOCATION</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="locations">
+            <tr *ngFor="let Loc of locations; index as i">
+                <td>{{Loc.locationCode}}</td>
+                <td>{{Loc.location}}</td>
+                <td><a (click)="getInfo(Loc.locationCode)" (click)="setupdatevalue()" value="Get">Edit</a></td>
+                <td><a (click)="delete(i)">Delete</a></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+<div class="container-fluid input-box" *ngIf="id">
+    <form [formGroup]="locForm" (ngSubmit)="updateForm()" style="width: fit-content;">
+        <div class="form-group">
+            <label for="enter_id"><b>Enter Location Code</b></label>
+            <input type="number" aria-describedby="input-ID" id="locationCode" formControlName="locationCode"
+                class="form-control" placeholder="Enter Location Code">
+        </div>
+        <div class="form-group">
+            <label for="enter_id"><b>Enter Location</b></label>
+            <input type="text" aria-describedby="input-ID" id="location" formControlName="location"
+                class="form-control" placeholder="Enter Your Location">
+        </div>
+        <br>
+        <div class="form-group">
+            <button class="button" type="submit" class="btn btn-primary" [disabled]="locForm.invalid">Submit</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+        </div>
+    </form>
+</div>

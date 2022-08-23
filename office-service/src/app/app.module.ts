@@ -1,21 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
-import { DepartmentComponent } from './department/department.component';
 import { LocationComponent } from './location/location.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { InputlocationComponent } from './inputlocation/inputlocation.component';
+import { InputLocationComponent } from './input-location/input-location.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserComponent,
-    DepartmentComponent,
-    LocationComponent,
-    InputlocationComponent,
-  ],
+  declarations: [AppComponent, LocationComponent, InputLocationComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

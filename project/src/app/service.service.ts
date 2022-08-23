@@ -4,8 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ServiceService {
-  private locations: any= [
-  ];
+  private locations: any= [];
   loc: any;
   constructor() {}
 
